@@ -38,13 +38,13 @@ def get_time_series_data():
         lambda a, b: a | b, (app.df["Total Volume"].str.contains(sale) for sale in all_sales)
     )
 
-    print(wanted_sales)
+    # print(wanted_sales)
 
     # Create a new dataframe from the one that
     # total volume is number of sales 
     # type is conventional or organic 
     df_new = app.df[wanted_sales][["Total Volume"] + ["region", "type"]]
-
+    print(df_new)
     # Return the dataframe as json
     return df_new.to_json(), 200
 

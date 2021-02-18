@@ -1,7 +1,7 @@
 const chart = new Chartist.Line(".ct-chart", {});
 
 // Get the initial chart data
-function getChartData(queryString = "?n=2004&n=2005&m=diet&m=gym") {
+function getChartData(queryString = "?n=2015&n=2018&m=region&m=type") {
   axios
     .get("/time_series" + queryString)
     .then(res => {
