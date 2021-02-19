@@ -3,6 +3,8 @@ import sys
 import time
 import os
 
+# When your app is running inside a Docker container, 
+# Docker expects you to do all the configuration using environment variables
 from dotenv import load_dotenv
 
 class App:
@@ -10,6 +12,7 @@ class App:
         load_dotenv(verbose=True)
         self.loops = int(os.getenv("LOOPS", 5))
         self.shutdown = False
+        # CMD instruction allows it to receive signals from operating system - SIGNT and SIGTERM (used to shut down application)
         signal.signal(signal.SIGINT, self.exit_gracefully)
         signal.signal(signal.SIGTERM, self.exit_gracefully)
 
