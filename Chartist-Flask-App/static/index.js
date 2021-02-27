@@ -3,7 +3,7 @@ const chart = new Chartist.Line(".ct-chart", {});
 // Get the initial chart data
 function getChartData(queryString = "?n=2015&n=2018&m=region&m=type") {
   axios
-    .get("/time_series" + queryString)
+    .get("/time_series" + queryString)s
     .then(res => {
       let timeSeries = res.data;
 
