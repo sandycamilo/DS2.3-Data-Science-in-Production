@@ -33,3 +33,6 @@ and port 3000 in production mode.
 
 [Flask](http://flask.pocoo.org/) 
 
+## AWS 
+http://chartistapp-env.eba-pxcxuwya.us-east-2.elasticbeanstalk.com
+
