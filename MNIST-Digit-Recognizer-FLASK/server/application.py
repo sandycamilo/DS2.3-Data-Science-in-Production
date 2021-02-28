@@ -12,10 +12,10 @@ import numpy as np
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
-app = flask.Flask(__name__)
-CORS(app)
-app.config["DEBUG"] = False
-api = Api(app,
+application = flask.Flask(__name__)
+CORS(application)
+application.config["DEBUG"] = False
+api = Api(application,
           version='1.0',
           title='Digits Recognition API',
           description='An API to recognize hand written digits.'
@@ -70,4 +70,5 @@ class DigitRecognizer(Resource):
 
 
 if __name__ == '__main__':
-    app.run()
+    application.debug = True
+    application.run()

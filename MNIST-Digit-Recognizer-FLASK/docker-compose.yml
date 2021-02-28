@@ -1,0 +1,42 @@
+# version: '3'
+# services: 
+# # set up server container 
+#   server:
+#     build: ./server
+#     expose: 
+#       - ${APP_SERVER_PORT}
+#     environment: 
+#       API_HOST: ${API_HOST}
+#       APP_SERVER_PORT: ${APP_SERVER_PORT}
+#     ports: 
+#       - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
+#     command: "python3 server.py"
+# # set up client container
+#   client:
+#     build: ./client
+#     environment: 
+#       - CLIENT_APP_PORT=${CLIENT_APP_PORT}
+#     expose: 
+#       - ${CLIENT_APP_PORT}
+#     ports: 
+#       - ${CLIENT_APP_PORT}:${CLIENT_APP_PORT}
+#     links:
+#       - server 
+#     command: "npm start"
+
+version: "3.3"
+services:
+  server:
+    build: ./server
+    image: localhost:5000/mnistapp
+    ports:
+      - "5000:5000"
+    command: "python3 server.py"
+    links:
+      - client
+  client:
+    build: ./client
+    image: camilosandy/mnistapp
+    ports:
+      - "3000:3000"
+    command: "npm start"
