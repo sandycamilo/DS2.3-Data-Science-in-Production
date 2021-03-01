@@ -3,10 +3,10 @@ FROM node:8.11.3 as node
 # Add requirements.txt file 
 COPY . .
 
-ADD . /app
+ADD . /application
 
 # Set working directory to previously added app directory
-WORKDIR /app
+WORKDIR /application
 
 # # Expose the port Flask is running on 
 # EXPOSE 3000

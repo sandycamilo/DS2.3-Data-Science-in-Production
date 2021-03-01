@@ -6,10 +6,10 @@ COPY . .
 # Install required pyhton dependencies from requirements file 
 RUN pip install -r requirements.txt
 
-ADD . /app
+ADD . /application
 
 # Set working directory to previously added app directory
-WORKDIR /app
+WORKDIR /application
 
 # Expose the port Flask is running on 
 EXPOSE 5000

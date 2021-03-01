@@ -31,7 +31,7 @@ services:
     image: localhost:5000/mnistapp
     ports:
       - "5000:5000"
-    command: "python3 server.py"
+    command: "python3 application.py"
     links:
       - client
   client:
